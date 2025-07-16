@@ -24,15 +24,16 @@ const NotePage = ({ params }) => {
     };
 
     return (
-        <div className="relative w-full flex flex-col gap-6 m-10 p-10 border-[2px] border-[#9F9F9F]">
+        <div className="relative w-full min-h-screen flex flex-col gap-6 m-10 p-10 bg-[#0d1f15] text-[#d4ffe6] border-[2px] border-[#1f4d3e] rounded-lg shadow-lg">
             <AiOutlineArrowLeft
-                className="absolute top-5 left-5 text-3xl hover:cursor-pointer active:scale-90"
+                className="absolute top-5 left-5 text-3xl text-[#9bf5c1] hover:cursor-pointer hover:text-[#72c59f] transition active:scale-90"
                 onClick={() => router.back()}
             />
-            <div className="w-full flex justify-between py-4 px-10 border-b-[1px] border-[#9F9F9F]">
+
+            <div className="w-full flex justify-between items-start py-4 px-10 border-b border-[#2a674d]">
                 <div className="w-full flex flex-col justify-center">
                     <input
-                        className="text-3xl font-bold bg-transparent outline-none"
+                        className="text-3xl font-bold bg-transparent outline-none text-[#c4ffe4] placeholder:text-[#88bfa3]"
                         type="text"
                         placeholder="Title"
                         value={title}
@@ -41,7 +42,7 @@ const NotePage = ({ params }) => {
                             updateNoteTitle(e.target.value, filteredNote);
                         }}
                     />
-                    <small className="ml-8 mt-2 text-gray-300 font-medium">
+                    <small className="ml-8 mt-2 text-sm text-[#a0d6be] font-medium">
                         {`Last Edited: ${
                             filteredNote.lastEdited
                                 ? filteredNote.lastEdited
@@ -50,18 +51,16 @@ const NotePage = ({ params }) => {
                     </small>
                 </div>
 
-                <div className="flex gap-6">
-                    <button className="text-2xl">
+                <div className="flex gap-6 mt-2 text-[#9bf5c1]">
+                    <button className="text-2xl hover:text-[#5fe4a8] transition">
                         {filteredNote.isBookmarked ? (
-                            <BsFillBookmarkFill
-                                onClick={handleBookmarkToggle}
-                            />
+                            <BsFillBookmarkFill onClick={handleBookmarkToggle} />
                         ) : (
                             <BsBookmark onClick={handleBookmarkToggle} />
                         )}
                     </button>
                     <button
-                        className="text-2xl"
+                        className="text-2xl hover:text-[#e57373] transition"
                         onClick={() => {
                             deleteNote(filteredNote?.noteId);
                             router.back();
@@ -71,8 +70,9 @@ const NotePage = ({ params }) => {
                     </button>
                 </div>
             </div>
+
             <textarea
-                className="w-full h-full p-6 text-lg outline-none bg-transparent resize-none border-[1px] border-[#9F9F9F]"
+                className="w-full h-[70vh] p-6 text-lg outline-none bg-[#143525] text-[#d4ffe6] placeholder:text-[#a4cbb9] resize-none border border-[#2a674d] rounded-md"
                 value={body}
                 onChange={(e) => {
                     setBody(e.target.value);
