@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -11,7 +12,7 @@ import { auth } from "../../firebase-config";
 import { useAuthStore } from "@store/auth/authStore";
 import { useToast } from "@chakra-ui/react";
 
-const loginPage = () => {
+const LoginPage = () => {
     const router = useRouter();
     const toast = useToast();
     const [showSignup, setShowSignup] = useState(false);
@@ -44,10 +45,14 @@ const loginPage = () => {
     }, [user]);
 
     return (
-        <div className="text-black min-h-screen w-full flex flex-col md:flex-row items-center justify-center p-6 bg-[#0b3d20]">
+        <div className="min-h-screen w-full bg-[#0b3d20] flex flex-col md:flex-row items-center justify-center overflow-x-hidden px-6 py-10">
             {/* Logo + Title Section */}
-            <div className="w-full md:w-1/2 flex flex-col items-center justify-center gap-6 md:gap-4 mb-10 md:mb-0">
-                <img className="w-2/3 md:w-2/3 max-w-xs md:max-w-md" src="/images/logo.png" alt="logo" />
+            <div className="w-full md:w-1/2 flex flex-col items-center justify-center gap-4 mb-10 md:mb-0">
+                <img
+                    src="/images/logo.png"
+                    alt="logo"
+                    className="w-full max-w-[200px] md:max-w-[300px] h-auto"
+                />
                 <h1 className="text-4xl md:text-6xl text-white font-bold text-center">
                     LinkInk
                 </h1>
@@ -71,4 +76,4 @@ const loginPage = () => {
     );
 };
 
-export default loginPage;
+export default LoginPage;
