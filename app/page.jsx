@@ -6,18 +6,15 @@ import {
     BsInstagram,
     BsGithub,
     BsTiktok,
-    BsList,
 } from "react-icons/bs";
 
 const Homepage = () => {
     const [sidebarVisible, setSidebarVisible] = useState(false);
 
-    const toggleSidebar = () => setSidebarVisible(!sidebarVisible);
-
     return (
-          <div className="min-h-screen w-full bg-[#1f3322] text-white flex flex-col items-center px-4">
+        <div className="min-h-screen w-full overflow-x-hidden bg-[#1f3322] text-white flex flex-col items-center px-4 py-10">
             {/* Main Content */}
-            <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between max-w-6xl mt-8">
+            <div className="w-full max-w-6xl flex flex-col-reverse md:flex-row items-center justify-between">
                 {/* Text Section */}
                 <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left space-y-6 p-4">
                     <h1 className="text-4xl md:text-6xl font-bold text-pink-400">LinkInk</h1>
@@ -37,9 +34,9 @@ const Homepage = () => {
                 </div>
 
                 {/* Logo Section */}
-                <div className="w-full md:w-1/2 flex justify-center p-4">
+                <div className="w-full md:w-1/2 flex justify-center items-center p-4">
                     <img
-                        className="w-full max-w-xs md:max-w-md"
+                        className="w-full max-w-[200px] md:max-w-[300px] h-auto"
                         src="/images/logo.png"
                         alt="LinkInk logo"
                     />
